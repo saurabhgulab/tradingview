@@ -1,5 +1,5 @@
 const getData = async () => {
-  const res = await fetch("data.csv");
+  const res = await fetch("data1.csv");
   const resp = await res.text();
   //   console.log(resp);
   const cdata = resp.split("\n").map((row) => {
