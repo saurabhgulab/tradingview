@@ -1,11 +1,11 @@
 const getData = async () => {
   const res = await fetch("data1.csv");
   const resp = await res.text();
-  //   console.log(resp);
+  // console.log(resp);
   const cdata = resp.split("\n").map((row) => {
-    const [time1, time2, open, high, low, close] = row.split(",");
+    const [date, open, high, low, close] = row.split(",");
     return {
-      time: new Date(`${time1}, ${time2}`).getTime() / 1000,
+      time: new Date(date).getTime() / 1000,
       open: open * 1,
       high: high * 1,
       low: low * 1,
@@ -13,15 +13,15 @@ const getData = async () => {
     };
   });
   return cdata;
-  //   console.log(cdata);
+  console.log(cdata);
 };
 
-// getData();
+getData();
 
 const displayChart = async () => {
   const chartProperties = {
-    width: 1500,
-    height: 600,
+    width: 1800,
+    height: 1000,
     timeScale: {
       timeVisible: true,
       secondsVisible: true,
